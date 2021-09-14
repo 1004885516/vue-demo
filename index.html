@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty</title>
+</head>
+
+<style>
+    #app{
+        border: 1px solid red;
+        margin: 10px;
+        padding: 20px;
+    }
+</style>
+<body>
+    <div id="app">
+        <input type="text" v-modal="name">
+        <div class="outer">
+            <span>{{name}}</span>
+        </div>
+        <button @click="reset">重置</button>
+    </div>
+</body>
+<script src="./compile.js"></script>
+<script src="./defineProperty.js"></script>
+<script>
+    // 阶段一
+    const data = {
+        el: '#app',
+        data: {
+            name: ''
+        },
+        methods: {
+            reset() {
+                this.name = ''
+            }
+        },
+    }
+    const app = new Vue(data)
+</script>
+</html>
